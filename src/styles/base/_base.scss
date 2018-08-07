@@ -1,0 +1,19 @@
+body {
+  margin: 0;
+  min-width: 350px;
+  overflow-x: hidden !important;
+
+  width: 100vw;
+  &.noscroll {
+    overflow: hidden;
+  }
+  &.scrollx {
+    overflow-x: visible !important;
+  }
+}
+* {
+  outline: none;
+}
+img {
+  max-width: 100%;
+}

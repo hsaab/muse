@@ -1,0 +1,114 @@
+$sizes_vw: 5, 10, 15, 20, 25, 30, 45, 50, 60, 75, 85, 100;
+
+// Viewport size utility classes
+
+@mixin vw-setup($namespace) {
+  @each $size in $sizes_vw {
+    .#{$namespace}vw-y#{$size} {
+      height: #{$size}vw;
+    }
+    .#{$namespace}vw-x#{$size} {
+      width: #{$size}vw;
+    }
+    .#{$namespace}vw-sq#{$size} {
+      width: #{$size}vw;
+      height: #{$size}vw;
+    }
+    .#{$namespace}vh-sq#{$size} {
+      width: #{$size}vh;
+      height: #{$size}vh;
+    }
+
+    .#{$namespace}vw-xmax#{$size} {
+      max-width: #{$size}vw;
+    }
+    .#{$namespace}vw-xmin#{$size} {
+      min-width: #{$size}vw;
+    }
+    .#{$namespace}vh-xmax#{$size} {
+      max-width: #{$size}vh;
+    }
+    .#{$namespace}vh-xmin#{$size} {
+      min-width: #{$size}vh;
+    }
+
+    .#{$namespace}vw-ymax#{$size} {
+      max-height: #{$size}vw;
+    }
+    .#{$namespace}vw-ymin#{$size} {
+      min-height: #{$size}vw;
+    }
+    .#{$namespace}vh-ymax#{$size} {
+      max-height: #{$size}vh;
+    }
+    .#{$namespace}vh-ymin#{$size} {
+      min-height: #{$size}vh;
+    }
+    .#{$namespace}vh-y#{$size} {
+      height: #{$size}vh;
+    }
+  }
+}
+
+// Other size utility classes
+
+$sizes_em: 1, 5, 6, 8, 9, 10, 16, 30, 40, 50;
+
+@mixin width-setup($namespace) {
+  @each $size in $sizes_em {
+    .#{$namespace}xmax#{$size} {
+      max-width: #{$size}rem;
+    }
+    .#{$namespace}ymax#{$size} {
+      max-height: #{$size}rem;
+    }
+
+    .#{$namespace}ymin#{$size} {
+      min-height: #{$size}rem;
+    }
+    .#{$namespace}x#{$size} {
+      width: #{$size}rem;
+    }
+    .#{$namespace}y#{$size} {
+      height: #{$size}rem;
+    }
+  }
+}
+
+@mixin padding-setup($namespace) {
+  .#{$namespace}p5 {
+    padding: $space-5;
+  }
+  .#{$namespace}p6 {
+    padding: $space-6;
+  }
+}
+
+@include width-setup("");
+@include vw-setup("");
+@include padding-setup("");
+
+@media #{$breakpoint-sm} {
+  @include width-setup("sm-");
+  @include vw-setup("sm-");
+  @include padding-setup("sm-");
+}
+
+@media #{$breakpoint-md} {
+  @include width-setup("md-");
+  @include vw-setup("md-");
+  @include padding-setup("md-");
+}
+
+@media #{$breakpoint-lg} {
+  @include width-setup("lg-");
+  @include vw-setup("lg-");
+  @include padding-setup("lg-");
+}
+
+.x-fill {
+  width: 100%;
+}
+.y-fill {
+  height: 100%;
+}

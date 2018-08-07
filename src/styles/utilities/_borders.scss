@@ -1,0 +1,55 @@
+@mixin borders($breakpoint, $namespace, $style) {
+  .#{$breakpoint}b#{$namespace} {
+    border: $style;
+  }
+  .#{$breakpoint}bt#{$namespace} {
+    border-top: $style;
+  }
+  .#{$breakpoint}br#{$namespace} {
+    border-right: $style;
+  }
+  .#{$breakpoint}bb#{$namespace} {
+    border-bottom: $style;
+  }
+  .#{$breakpoint}bl#{$namespace} {
+    border-left: $style;
+  }
+  .#{$breakpoint}bx#{$namespace} {
+    border-left: $style;
+    border-right: $style;
+  }
+  .#{$breakpoint}by#{$namespace} {
+    border-top: $style;
+    border-bottom: $style;
+  }
+}
+
+@mixin buildBorders($namespace,$style) {
+  @include borders('', $namespace, $style);
+
+  @media #{$breakpoint-sm} {
+    @include borders('sm-', $namespace, $style);
+  }
+
+  @media #{$breakpoint-md} {
+    @include borders('md-', $namespace, $style);
+  }
+
+  @media #{$breakpoint-lg} {
+    @include borders('lg-', $namespace, $style);
+  }
+}
+
+@include buildBorders(1,1px solid $gray-lighter);
+@include buildBorders(1,1px solid $neptune);
+@include buildBorders(2,1px solid $gray-dark);
+@include buildBorders(3,1px solid $gray-darker);
+
+.rounded {
+  border-radius: 4px !important;
+  -webkit-border-radius: 4px !important;
+}
+.round {
+  border-radius: 100% !important;
+  -webkit-border-radius: 100% !important;
+}
