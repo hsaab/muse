@@ -1,0 +1,104 @@
+.logo {
+  height: 10vw;
+}
+
+section {
+  min-height: 750px;
+  max-height: 800px;
+  width: 100%;
+  position: relative;
+}
+
+.bg-z-black {
+  background-color: black;
+  z-index: -100000;
+}
+
+@media(max-width: 35em) {
+  .icon {
+    height: 2.25em;
+  }
+}
+
+@media(min-width: 35em) {
+  .icon {
+    height: 4em;
+  }
+}
+
+@media(max-width: 35em) {
+  .how-text {
+    font-size: 1.2em;
+  }
+}
+
+@media(min-width: 35em) {
+  .how-text {
+    font-size: 1.8em;
+  }
+}
+
+.bg-concert {
+  background-image: url("../assets/concert_black.png");
+  z-index: 1;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+@media(max-width: 35em) {
+  .box {
+    width: 375px;
+    height: 375px;
+    border-radius: 3em;
+    padding: 2vh 2vw;
+    background-color: rgba(0,0,0,0.7);
+  }
+}
+
+@media(min-width: 35em) {
+  .box {
+    width: 450px;
+    height: 450px;
+    border-radius: 3em;
+    padding: 2vh 2vw;
+    background-color: rgba(0,0,0,0.7);
+  }
+}
+
+.spotify-company {
+  height: 1.4em;
+}
+
+.ticket-company {
+  height: 0.75em;
+}
+
+.google-company {
+  height: 1.15em;
+}
+
+@media(max-width: 35em) {
+  .sign-up-text {
+    font-size: 1.2em;
+  }
+}
+
+@media(min-width: 35em) {
+  .sign-up-text {
+    font-size: 1.8em;
+  }
+}
+
+@media(max-width: 35em) {
+  .sign-up-text-cont {
+    max-width: 400px;
+    padding: 20px 10px;
+  }
+}
+
+@media(min-width: 35em) {
+  .sign-up-text-cont {
+    max-width: 600px;
+    padding: 40px 40px;
+  }
+}

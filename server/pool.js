@@ -1,4 +1,4 @@
-if (!process.env.DATABASE_URL) {
+if (!process.env.DATABASE_URI) {
   console.error("DATABASE_URL environment variable missing. Did you run 'source env.sh'?");
   process.exit(1);
 }
@@ -7,7 +7,7 @@ if (!process.env.DATABASE_URL) {
 var pg = require('pg');
 
 var pool = new pg.Pool({
-  connectionString: process.env.DATABASE_URL,
+  connectionString: process.env.DATABASE_URI,
   ssl: true
 })
 
