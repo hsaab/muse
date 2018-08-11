@@ -10,10 +10,10 @@ export default class Landing extends Component {
               src={require("../assets/Muse_Video.mp4")}>
             </video>
           </div>
-          <Navbar/>
+          <Navbar scrollDown={this.props.scrollDown}/>
           <div className="white pt4 pl3" style={{fontSize: '5vh'}}>Never miss <strong>your</strong> favorite artists again when they're in <strong>your</strong> city</div>
           <div className="row justify-center pt2 mt4">
-            <a className="btn works">See how it works</a>
+            <a className="btn works" onClick={() => this.props.scrollMiddle()}>See how it works</a>
           </div>
         </div>
       );

@@ -12,6 +12,10 @@ class Home extends Component {
     scrollToComponent(this.bottom, { offset: 0, align: "top", duration: 500 });
   }
 
+  scrollToMiddle() {
+    scrollToComponent(this.middle, { offset: 0, align: "top", duration: 500 });
+  }
+
   render() {
       return (
         <div>
@@ -22,11 +26,12 @@ class Home extends Component {
           >
             <Landing
               scrollDown={() => this.scrollToBottom()}
+              scrollMiddle={() => this.scrollToMiddle()}
             />
           </section>
           <section
             ref={section => {
-              this.bottom = section;
+              this.middle = section;
             }}
           >
             <Howitworks

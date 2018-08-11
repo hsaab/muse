@@ -6,7 +6,7 @@ export default class SignUp extends Component {
   render() {
       return (
           <div className="px4 pt4">
-            <Navbar/>
+            <Navbar scrollDown={() => this.props.scrollDown()}/>
             <div className="container-narrow">
               <div className="flex row justify-around">
                 <Box/>

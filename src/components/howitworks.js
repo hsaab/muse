@@ -10,14 +10,14 @@ export default class howitworks extends Component {
   render() {
       return (
         <div className="px4 pt4 z5">
-          <Navbar/>
+          <Navbar scrollDown={() => this.props.scrollDown()}/>
           <div className="mt4 flex justify-center row" style={{width: '100%'}}>
             <Item text={step1} pic={require("../assets/dj.png")}/>
             <Item text={step2} pic={require("../assets/location.png")}/>
             <Item text={step3} pic={require("../assets/ticket.png")}/>
           </div>
           <div className="flex justify-center mt4">
-            <a className="btn sign-up center">Sign Up</a>
+            <a className="btn sign-up center" onClick={() => this.props.scrollDown()}>Sign Up</a>
           </div>
         </div>
       );

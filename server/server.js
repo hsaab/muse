@@ -31,3 +31,8 @@ app.use(function(req, res, next) {
 });
 
 app.use('/api', api(db));
+
+var port = process.env.PORT || 3001;
+app.listen(port);
+
+console.log("Listening on port " + port);
