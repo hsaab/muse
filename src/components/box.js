@@ -8,7 +8,7 @@ export default class Box extends Component {
     this.state = {
       email: '',
       location: '',
-      error: ''
+      error: '',
     }
     this.test = API.test.bind(this);
     this.login = API.login.bind(this);
