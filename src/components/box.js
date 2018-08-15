@@ -1,12 +1,27 @@
 import React, { Component } from "react";
 import Field from "./field.js";
+import * as API from "../API";
 
-export default class SignUp extends Component {
+export default class Box extends Component {
   constructor() {
     super();
     this.state = {
       email: '',
-      location: ''
+      location: '',
+      error: ''
+    }
+    this.test = API.test.bind(this);
+    this.login = API.login.bind(this);
+  }
+
+  subscribe() {
+    let test = this.test(this.state.email, this.state.location);
+    if(test.success && test.existing) {
+      this.setState({ error: "You already have signed up for this location!" });
+    } else if (test.success && !test.existing) {
+      this.login();
+    } else {
+      this.setState({ error: "There was an error signing you up. Please check back later!" });
     }
   }
 
@@ -17,6 +32,9 @@ export default class SignUp extends Component {
             <div className="mb3 sign-up-text">
               Sign Up
             </div>
+            {this.state.error.length > 1 && (
+              <span className="bold bigger2">{this.state.error}</span>
+            )}
             <Field
               name="email"
               label="Email"
@@ -38,10 +56,8 @@ export default class SignUp extends Component {
           </div>
           <div className="flex flex-column justify-center items-center">
             <a style={{width: '90%'}} className="btn submit mt2">
-              <span className="center">Integrate with</span>
-              <img className="spotify ml1" src={require("../assets/spotify_black.png")} alt=""/>
+              <span className="center" onClick={() => this.subscribe()}>Subscribe</span>
             </a>
-            <a style={{width: '90%'}} className="btn submit mt3">Subscribe</a>
           </div>
         </div>
       );

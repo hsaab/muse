@@ -16,9 +16,9 @@ export default class SignUp extends Component {
                 </div>
               </div>
             </div>
-            <div className="flex justify-end">
+            <div className="flex justify-end mr2" style={{marginTop: '13vh'}}>
               <div>
-                <span className="white mt2">Powered by:</span>
+                <span className="white">Powered by:</span>
                 <div className="row mt2 items-center justify-center">
                   <img className="spotify-company" alt="" src={require("../assets/spotify_white.png")}/>
                   <img className="ticket-company ml2 mr2" alt="" src={require("../assets/ticketmaster.png")}/>

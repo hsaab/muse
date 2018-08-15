@@ -99,19 +99,3 @@ transform: scale(1.05);
     font-size: 1em;
   }
 }
-
-@media(max-width: 35em) {
-  .spotify {
-    height: 0.9rem;
-    position: relative;
-    top: 3px;
-  }
-}
-
-@media(min-width: 35em) {
-  .spotify {
-    height: 1.3rem;
-    position: relative;
-    top: 3px;
-  }
-}

@@ -6,8 +6,6 @@ import SignUp from "../components/signup.js";
 import scrollToComponent from "react-scroll-to-component";
 
 class Home extends Component {
-  state = { userCount: null }
-
   scrollToBottom() {
     scrollToComponent(this.bottom, { offset: 0, align: "top", duration: 500 });
   }
