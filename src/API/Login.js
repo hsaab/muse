@@ -1,14 +1,18 @@
 import axios from "axios";
 
-export function login(email, location) {
-  axios({
-    method: 'get',
-    url: `https://flying-monkey-43234.herokuapp.com/spotify/login`
-  })
-    .then(result => {
-      console.log("Logged In from spotify");
-    })
-    .catch(e => {
-      return false;
-    });
+export async function login(email, location) {
+  try {
+    const result = await axios({
+        method: 'post',
+        url: `https://muse-flying-monkey.herokuapp.com/spotify/login`,
+        data: {
+          email,
+          location
+        }
+      })
+    const data = await result.data;
+    return data;
+  } catch (e) {
+    return false;
+  }
 }

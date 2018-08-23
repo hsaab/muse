@@ -1,20 +1,18 @@
 import axios from "axios";
 
-export function test(email, location) {
-  axios({
-    method: 'get',
-    url: `https://flying-monkey-43234.herokuapp.com/spotify/test?email=${email}&location=${location}`
-  })
-    .then(result => {
-      if(result.data.success && result.data.existing) {
-        return { success: true, existing: true };
-      } else if(result.data.success && !result.data.existing) {
-        return { success: true, existing: false };
-      } else {
-        return false
+export async function test(email, location) {
+  try {
+    const result = await axios({
+      method: 'get',
+      url: `https://muse-flying-monkey.herokuapp.com/spotify/test`,
+      params: {
+        email,
+        location
       }
     })
-    .catch(e => {
-      return false;
-    });
+    const data = await result.data;
+    return data;
+  } catch (e) {
+    return false;
+  }
 }

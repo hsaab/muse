@@ -15,39 +15,39 @@ class Home extends Component {
   }
 
   render() {
-      return (
-        <div>
-          <section
-            ref={section => {
-              this.top = section;
-            }}
-          >
-            <Landing
-              scrollDown={() => this.scrollToBottom()}
-              scrollMiddle={() => this.scrollToMiddle()}
+    return (
+      <div>
+        <section
+          ref={section => {
+            this.top = section;
+          }}
+        >
+          <Landing
+            scrollDown={() => this.scrollToBottom()}
+            scrollMiddle={() => this.scrollToMiddle()}
+          />
+        </section>
+        <section
+          ref={section => {
+            this.middle = section;
+          }}
+        >
+          <Howitworks
+            scrollDown={() => this.scrollToBottom()}
             />
-          </section>
-          <section
-            ref={section => {
-              this.middle = section;
-            }}
-          >
-            <Howitworks
-              scrollDown={() => this.scrollToBottom()}
-              />
-          </section>
-          <section
-            className="bg-concert"
-            ref={section => {
-              this.bottom = section;
-            }}
-          >
-            <SignUp
-              scrollDown={() => this.scrollToBottom()}
-              />
-          </section>
-        </div>
-      );
+        </section>
+        <section
+          className="bg-concert"
+          ref={section => {
+            this.bottom = section;
+          }}
+        >
+          <SignUp
+            scrollDown={() => this.scrollToBottom()}
+            />
+        </section>
+      </div>
+    );
   }
 }
 
