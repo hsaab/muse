@@ -11,8 +11,8 @@ export default class SignUp extends Component {
               <div className="flex row justify-around">
                 <Box/>
                 <div className="flex flex-column sign-up-text-cont">
-                  <div className="white sign-up-text">We send you concerts near you for your favorite artists</div>
-                  <div className="white mt3 sign-up-text">So you’ll always be in the know</div>
+                  <div className="white sign-up-text">We send the concerts you'll love, near you</div>
+                  <div className="white mt3 sign-up-text">So you can always be in the know</div>
                 </div>
               </div>
             </div>
