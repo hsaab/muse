@@ -9,7 +9,7 @@ export default class Box extends Component {
       email: '',
       location: '',
       error: '',
-      name: ''
+      name: '',
     }
     this.test = API.test.bind(this);
   }
