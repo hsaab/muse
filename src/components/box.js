@@ -9,12 +9,13 @@ export default class Box extends Component {
       email: '',
       location: '',
       error: '',
+      name: ''
     }
     this.test = API.test.bind(this);
   }
 
-  login(email, location) {
-    window.location.href = `https://muse-flying-monkey.herokuapp.com/spotify/login?email=${email}&location=${location}`;
+  login(name, email, location) {
+    window.location.href = `https://muse-flying-monkey.herokuapp.com/spotify/login?email=${email}&location=${location}&name=${name}`;
   }
 
   refresh(email, location) {
@@ -26,12 +27,13 @@ export default class Box extends Component {
     e.preventDefault();
     let email = this.state.email;
     let location = this.state.location;
+    let name = this.state.name;
     try {
       const test = await this.test(email, location);
       if(test.success && test.existing) {
         this.setState({ error: "You already have signed up for this location!" });
       } else if (test.success && !test.existing) {
-        this.login(email, location);
+        this.login(email, location, name);
       } else {
         this.setState({ error: "There was an error signing you up. Please check back later!" });
       }
@@ -52,6 +54,15 @@ export default class Box extends Component {
             <span className="bold bigger2">{this.state.error}</span>
           )}
           <Field
+            name="name"
+            label="First Name"
+            placeholder="First Name"
+            defaultValue={this.state.name}
+            onBlur={e => this.setState({ name: e.target.value.trim() })}
+            onChange={e => this.setState({ name: e.target.value })}
+            className="mb3"
+            />
+          <Field
             name="email"
             label="Email"
             placeholder="Email"
@@ -60,15 +71,15 @@ export default class Box extends Component {
             onChange={e => this.setState({ email: e.target.value })}
             className="mb3"
             />
-            <Field
-              name="location"
-              label="Location"
-              placeholder="Location"
-              defaultValue={this.state.location}
-              onBlur={e => this.setState({ location: e.target.value.trim() })}
-              onChange={e => this.setState({ location: e.target.value })}
-              className="mb3"
-              />
+          <Field
+            name="location"
+            label="Location"
+            placeholder="Location"
+            defaultValue={this.state.location}
+            onBlur={e => this.setState({ location: e.target.value.trim() })}
+            onChange={e => this.setState({ location: e.target.value })}
+            className="mb3"
+            />
         </div>
         <div className="flex flex-column justify-center items-center">
           <a style={{width: '90%'}} className="btn submit mt2">
