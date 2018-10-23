@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import ReactLoading from "react-loading";
 import Field from "./field.js";
 import * as API from "../API";
 
@@ -10,6 +11,7 @@ export default class Box extends Component {
       location: '',
       error: '',
       name: '',
+      loading: false
     }
     this.test = API.test.bind(this);
   }
@@ -18,27 +20,24 @@ export default class Box extends Component {
     window.location.href = `https://muse-flying-monkey.herokuapp.com/spotify/login?email=${email}&location=${location}&name=${name}`;
   }
 
-  refresh(email, location) {
-    window.location.href = `https://muse-flying-monkey.herokuapp.com/spotify/refresh?email=${email}&location=${location}`;
-  }
-
   async subscribe(e) {
     e.preventDefault();
     this.refs.btn.setAttribute("disabled", "disabled");
+    this.setState({ loading: true });
     let email = this.state.email;
     let location = this.state.location;
     let name = this.state.name;
     try {
       const test = await this.test(email, location);
       if(test.success && test.existing) {
-        this.setState({ error: "You already have signed up for this location!" });
+        this.setState({ error: "You already have signed up for this location!", loading: false });
       } else if (test.success && !test.existing) {
         this.login(name, email, location);
       } else {
-        this.setState({ error: "There was an error signing you up. Please check back later!" });
+        this.setState({ error: "There was an error signing you up. Please check back later!", loading: false });
       }
     } catch (error) {
-      this.setState({ error: "There was an error signing you up. Please check back later!" });
+      this.setState({ loading: false, error: "There was an error signing you up. Please check back later!" });
     }
   }
 
@@ -72,8 +71,8 @@ export default class Box extends Component {
             />
           <Field
             name="location"
-            label="Location"
-            placeholder="Location"
+            label="City"
+            placeholder="City"
             defaultValue={this.state.location}
             onBlur={e => this.setState({ location: e.target.value.trim() })}
             onChange={e => this.setState({ location: e.target.value })}
@@ -81,13 +80,17 @@ export default class Box extends Component {
             />
         </div>
         <div className="flex flex-column justify-center items-center">
-          <button
-            style={{width: '90%'}}
-            className="btn submit mt2"
-            onClick={(e) => this.subscribe(e)}
-            ref="btn">
-            Subscribe
-          </button>
+          { this.state.loading ?
+            <ReactLoading type='bars' color='white' height='15%' width='15%'/>
+            :
+            <button
+              style={{width: '90%'}}
+              className="btn submit mt2"
+              onClick={(e) => this.subscribe(e)}
+              ref="btn">
+              Subscribe
+            </button>
+          }
         </div>
       </div>
     );

@@ -48,7 +48,7 @@ section {
 @media(max-width: 35em) {
   .box {
     width: 375px;
-    height: 350px;
+    height: 450px;
     border-radius: 3em;
     padding: 2vh 2vw;
     background-color: rgba(0,0,0,0.7);
@@ -58,7 +58,7 @@ section {
 @media(min-width: 35em) {
   .box {
     width: 450px;
-    height: 400px;
+    height: 500px;
     border-radius: 3em;
     padding: 2vh 2vw;
     background-color: rgba(0,0,0,0.7);
@@ -102,3 +102,31 @@ section {
     padding: 40px 40px;
   }
 }
+
+@media (min-width: 60em) {
+  .loading-logo {
+    color: white;
+    font-size: 3vw;
+    position: relative;
+    bottom: 4.5vh;
+    font-weight: bold; } }
+
+@media (max-width: 60em) {
+  .loading-logo {
+    color: white;
+    font-size: 3vw;
+    position: relative;
+    bottom: 8.7vh;
+    font-weight: bold; } }
+
+@media (min-width: 60em) {
+  .loading-text {
+    color: white;
+    position: relative;
+    top: 4vh; } }
+
+@media (max-width: 60em) {
+  .loading-text {
+    color: white;
+    position: relative;
+    bottom: 5.5vh; } }

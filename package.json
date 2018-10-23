@@ -10,6 +10,7 @@
     "querystring": "^0.2.0",
     "react": "^16.4.2",
     "react-dom": "^16.4.2",
+    "react-loading": "^2.0.3",
     "react-redux": "^5.0.7",
     "react-scripts": "1.1.4",
     "react-scroll-to-component": "^1.0.2",

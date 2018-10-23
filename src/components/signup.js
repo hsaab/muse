@@ -12,7 +12,7 @@ export default class SignUp extends Component {
                 <Box/>
                 <div className="flex flex-column sign-up-text-cont">
                   <div className="white sign-up-text">We send the concerts you'll love, near you</div>
-                  <div className="white mt3 sign-up-text">So you can always be in the know</div>
+                  <div className="white mt3 sign-up-text">Never miss your favorite artists again!</div>
                 </div>
               </div>
             </div>
