@@ -20,11 +20,11 @@ export default class Box extends Component {
 
   refresh(email, location) {
     window.location.href = `https://muse-flying-monkey.herokuapp.com/spotify/refresh?email=${email}&location=${location}`;
-    console.log("Refreshing");
   }
 
   async subscribe(e) {
     e.preventDefault();
+    this.refs.btn.setAttribute("disabled", "disabled");
     let email = this.state.email;
     let location = this.state.location;
     let name = this.state.name;
@@ -33,12 +33,11 @@ export default class Box extends Component {
       if(test.success && test.existing) {
         this.setState({ error: "You already have signed up for this location!" });
       } else if (test.success && !test.existing) {
-        this.login(email, location, name);
+        this.login(name, email, location);
       } else {
         this.setState({ error: "There was an error signing you up. Please check back later!" });
       }
     } catch (error) {
-      console.log(error);
       this.setState({ error: "There was an error signing you up. Please check back later!" });
     }
   }
@@ -82,9 +81,13 @@ export default class Box extends Component {
             />
         </div>
         <div className="flex flex-column justify-center items-center">
-          <a style={{width: '90%'}} className="btn submit mt2">
-            <span className="center" onClick={(e) => this.subscribe(e)}>Subscribe</span>
-          </a>
+          <button
+            style={{width: '90%'}}
+            className="btn submit mt2"
+            onClick={(e) => this.subscribe(e)}
+            ref="btn">
+            Subscribe
+          </button>
         </div>
       </div>
     );
