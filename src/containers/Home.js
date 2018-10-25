@@ -1,11 +1,10 @@
 import React, { Component } from "react";
-import { connect } from "react-redux";
 import Landing from "../components/landing.js";
 import Howitworks from "../components/howitworks.js";
 import SignUp from "../components/signup.js";
 import scrollToComponent from "react-scroll-to-component";
 
-class Home extends Component {
+export default class Home extends Component {
   scrollToBottom() {
     scrollToComponent(this.bottom, { offset: 0, align: "top", duration: 500 });
   }
@@ -50,11 +49,3 @@ class Home extends Component {
     );
   }
 }
-
-const mapStateToProps = state => {
-  return {
-    artists: state.artists
-  };
-};
-
-export default connect(mapStateToProps)(Home);
